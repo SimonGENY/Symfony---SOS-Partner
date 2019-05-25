@@ -1,0 +1,28 @@
+{% extends 'app.html.twig' %}
+
+
+{% block body %}
+    <div class="container mt-3">
+        <div class="card">
+            <div class="px-3 py-3">
+                <h3>Accueil</h3>
+                {% for errorMessage in app.flashes('error') %}
+                    <div class="alert alert-danger d-flex align-items-center justify-content-between" role="alert">
+                        <div class="flex-fill mr-3">
+                            <p class="mb-0">{{ errorMessage }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% for succesMessage in app.flashes('success') %}
+                    <div class="alert alert-success d-flex align-items-center justify-content-between" role="alert">
+                        <div class="flex-fill mr-3">
+                            <p class="mb-0">{{ succesMessage }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

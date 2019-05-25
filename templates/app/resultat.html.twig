@@ -1,0 +1,28 @@
+{% extends 'app.html.twig' %}
+
+
+{% block body %}
+    <div class="container mt-3">
+        <div class="card">
+            <div class="px-3 py-3">
+                <h3>Résultat de la recherche : {{ resultat|length }} sportif(s) trouvé(s)</h3>
+            </div>
+            {% for joueur in resultat %}
+                <div class="card text-white bg-primary ml-3 mb-3 mr-3" style="max-width: 20rem;">
+                    <div class="card-header">{{ joueur.age }}ans - {{ joueur.sexe }}</div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ joueur.nom }} {{ joueur.prenom }}</h4>
+                        <p class="card-text">Joueur de :</p>
+                        <ul style="list-style:none;margin-left:0;padding-left:0;">
+                            {% for sport in joueur.sports %}
+                                <li>- {{ sport.nom }}</li>
+                            {% endfor %}
+                        </ul>
+                        <p>Email : {{ joueur.email }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
